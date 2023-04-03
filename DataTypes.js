@@ -1,4 +1,4 @@
-/*
+
 // var - datatype
 var VarName = 'Shantanu';
 //alert(VarName);
@@ -13,30 +13,27 @@ console.log(LetName);
 const ConstName = 'Chatterjee';
 // alert(ConstName);
 console.log(ConstName);
-*/
+
 
 /* Access */
 
 // var can be accessible from everywhere
-// if(true) {
-//     var name = 'Shantanu';
-//     console.log(name);
-// }
-
-// console.log(name);
+if(true) {
+    var name = 'Shantanu';
+    console.log(name);
+}
+console.log(name);
 
 // let can't be
-// if(true) {
-//     let name = 'Shantanu';
-//     console.log(name);
-// }
-
-// console.log(name);
+if(true) {
+    let name = 'Shantanu';
+    console.log(name);
+}
+console.log(name);
 
 // const also
-// if(true) {
-//     const name = 'Shantanu';
-//     console.log(name);
-// }
-
-// console.log(name);
+if(true) {
+    const name = 'Shantanu';
+    console.log(name);
+}
+console.log(name);
