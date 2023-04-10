@@ -50,7 +50,7 @@ function App() {
 export default App;
 */
 
-/*
+
 import Video from "./components/Video";
 function App() {
   // to add more line in the return statement it's a rule to have a parent segment for the childs. And in JSX there only can be one parent. We've to use the () for merging all the code
@@ -63,4 +63,3 @@ function App() {
 }
 export default App;
 // now the component tree changed
-*/
