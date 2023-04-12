@@ -17,9 +17,17 @@
 }
 
 .channelName, .details {
-    font-size: small;
     color: white;
     margin-bottom: 0.2em;
+}
+
+.channelName {
+    font-size: small;
+    font-weight: bold;
+}
+
+.details {
+    font-size: small;
 }
 
 .views span {
