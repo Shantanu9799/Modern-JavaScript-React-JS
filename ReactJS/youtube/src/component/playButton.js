@@ -1,11 +1,11 @@
 import './PlayButton.css'
 
-function PlayButton() {
+function PlayButton({message, children, onSmash}) {
     function handelClick() {
-        console.log("Play")
+        onSmash();
     }
     return (
-        <button onClick={handelClick}>Play</button>
+        <button onClick={handelClick}>{children}</button>
     )
 }
 

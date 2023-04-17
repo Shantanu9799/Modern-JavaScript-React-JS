@@ -17,8 +17,8 @@ function App() {
       )}
 
       <div style={{clear : "both"}}> 
-        <PlayButton></PlayButton>
-        <PlayButton></PlayButton>
+        <PlayButton message='Play - msg' onSmash = {()=> console.log("Play")}>Play</PlayButton>
+        <PlayButton message='Pause - msg' onSmash = {()=> alert("Pause")}>Pause</PlayButton>
       </div>
     </div>
   );

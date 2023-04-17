@@ -207,7 +207,7 @@ PlauButton.js
 import './PlayButton.css'
 function PlayButton() {
     return (
-        <button onClick={console.log('Play')}>Play</button>   // it'll print the Play twice, because console.log('Play') expression is already called, because js expression will be executed always. That's why we should pass the defination of the function. \\
+        <button onClick={console.log('Play')}>Play</button>   // it'll print the Play twice, because console.log('Play') expression is already called, because js expression will be executed always. That's why we should pass the defination of the function. This is called Event Handeler Function \\
     )
 }
 
@@ -255,7 +255,7 @@ function PlayButton() {
         console.log("Play")
     }
     return (
-        <button onClick={handelClick()}>Play</button> // because when you put ()on a func it simply means you are calling the function. The same problem you've to face
+        <button onClick={handelClick()}>Play</button> // because when you put ()on a func it simply means you are calling the function. The same problem you've to face \\
     )
 }
 
@@ -263,6 +263,144 @@ export default PlayButton
 
 **//
 
+**//
 
+** Adding Functionality in two different buttons using props
+
+//**
+PlayButton.js
+
+import './PlayButton.css'
+
+function PlayButton({message, name}) {
+    function handelClick() {
+        console.log(message);
+    }
+    return (
+        <button onClick={handelClick}>{name}</button>
+    )
+}
+
+export default PlayButton
 
 **//
+
+//**
+App.js
+
+    <div style={{clear : "both"}}> 
+        <PlayButton name='Play' message='Play - msg'></PlayButton>
+        <PlayButton name='Pause' message='Pause - msg'></PlayButton>
+      </div>
+    </div>
+
+**//
+
+But we know that, we can pass the Name of the button inside the button tahg. Here we can put the button name inside the PlayButton tags.. So we don't need any name props.. Instead we need to pass the children props for passing the name
+
+//**
+PlayButton.js
+
+import './PlayButton.css'
+
+function PlayButton({message, children}) {
+    function handelClick() {
+        console.log(message);
+    }
+    return (
+        <button onClick={handelClick}>{children}</button>
+    )
+}
+
+export default PlayButton
+
+**//
+
+//**
+App.js
+
+import "./App.css";
+import Video from "./component/Video";
+import PlayButton from "./component/playButton";
+import videos from "./data/data";
+function App() {
+  return (
+    //also we can make a object of all the properties and directly put it like <Video {...obj} />.
+    <div className="App">
+      {videos.map(videos => 
+        <Video
+          title={videos.title}
+          views={videos.views}
+          source={videos.source}
+          time={videos.time}
+          verified={videos.verified}
+        ></Video>
+      )}
+
+      <div style={{clear : "both"}}> 
+        <PlayButton message='Play - msg'>Play</PlayButton>
+        <PlayButton message='Pause - msg'>Pause</PlayButton>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+**//
+
+
+** Adding different Functionality in two different buttons
+
+//**
+PlayButton.js
+
+import './PlayButton.css'
+
+function PlayButton({message, children, onSmash}) {  // we can pass a function as a props, because func 
+    function handelClick() {
+        onSmash();
+    }
+    return (
+        <button onClick={handelClick}>{children}</button>
+    )
+}
+
+export default PlayButton
+
+**//
+
+//**
+App.js
+
+import "./App.css";
+import Video from "./component/Video";
+import PlayButton from "./component/playButton";
+import videos from "./data/data";
+function App() {
+  return (
+    //also we can make a object of all the properties and directly put it like <Video {...obj} />.
+    <div className="App">
+      {videos.map(videos => 
+        <Video
+          title={videos.title}
+          views={videos.views}
+          source={videos.source}
+          time={videos.time}
+          verified={videos.verified}
+        ></Video>
+      )}
+
+      <div style={{clear : "both"}}> 
+        <PlayButton message='Play - msg' onSmash = {()=> console.log("Play")}>Play</PlayButton>  // this onSamsh is a custom event.. 
+        <PlayButton message='Pause - msg' onSmash = {()=> alert("Pause")}>Pause</PlayButton>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+**//
+
+
