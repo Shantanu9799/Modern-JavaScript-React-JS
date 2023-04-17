@@ -194,3 +194,75 @@ function Video({ source, title, channel = "Santu", views, time, verified = true 
 
 export default Video;
 **//
+
+
+-> Events, Event Handeling
+
+If we pass any function, we should pass the function defination, don't call the function on a event.. If you do it'll automatically running in the console..
+Like
+
+//**
+PlauButton.js
+
+import './PlayButton.css'
+function PlayButton() {
+    return (
+        <button onClick={console.log('Play')}>Play</button>   // it'll print the Play twice, because console.log('Play') expression is already called, because js expression will be executed always. That's why we should pass the defination of the function. \\
+    )
+}
+
+export default PlayButton
+
+
+//** passing the defination of the function
+
+import './PlayButton.css'
+function PlayButton() {
+    return (
+        <button onClick={()=> console.log('Play')}>Play</button>   // now the play will be printed when ever you click the button \\
+    )
+}
+
+export default PlayButton
+
+**//
+
+
+
+//** most convincing way of doing that is, 
+
+import './PlayButton.css'
+function PlayButton() {
+    function handelClick() {
+        console.log("Play")
+    }
+    return (
+        <button onClick={handelClick}>Play</button>  //by putting only the name we're simply defining the func, we're not actually calling the function. The func will call when you click on the function
+    )
+}
+
+export default PlayButton
+
+**//
+
+
+
+//** but don't do this one 
+
+import './PlayButton.css'
+function PlayButton() {
+    function handelClick() {
+        console.log("Play")
+    }
+    return (
+        <button onClick={handelClick()}>Play</button> // because when you put ()on a func it simply means you are calling the function. The same problem you've to face
+    )
+}
+
+export default PlayButton
+
+**//
+
+
+
+**//
