@@ -1,7 +1,124 @@
+-> Conditional rendering
+
+Conditional rendering is one of the technique to render something based on some conditions.
+
+It can be done by if..else statement and also done by boolean logic as well.
+
+Our task is to render a ☑️ sign if the channel is verified or not.
+
+While passing the props we can send a value which will decide that the ☑️ sign is going to render or not.
+
+//**  using if..else statement
+Video.js
+
+import "./Video.css";  // importing css file
+function Video({ source, title, channel = "Santu", views, time, verified = true }) { // de-structuring the object and used them as a variable
+  let channelJSX;
+  if(verified) {
+    channelJSX = <div className="channelName">{channel} ☑️</div>  // we can store a html code in a js variable.. It's a property of JSX
+  } else {
+    channelJSX = <div className="channelName">{channel}</div>
+  }
+  return (
+    <div className="container">
+      <div className="pic">
+        <img src={source} alt="Opps!!" />
+      </div>
+      <div className="title">{title}</div>
+      {channelJSX}
+      <div className="details">
+        {views} views <span>.</span> {time} ago
+      </div>
+    </div>
+  );
+}
+
+export default Video;
+**//
+
+//**  using ternary operator
+Video.js
+
+import "./Video.css";  // importing css file
+function Video({ source, title, channel = "Santu", views, time, verified = true }) { // de-structuring the object and used them as a variable
+  return (
+    <div className="container">
+      <div className="pic">
+        <img src={source} alt="Opps!!" />
+      </div>
+      <div className="title">{title}</div>
+      {verified ? <div className="channelName">{channel} ☑️</div> : channelJSX = <div className="channelName">{channel}</div>}
+      <div className="details">
+        {views} views <span>.</span> {time} ago
+      </div>
+    </div>
+  );
+}
+
+export default Video;
+
+
+
+
+//** another way to use the ternary operator
+
+Video.js
+
+import "./Video.css";  // importing css file
+function Video({ source, title, channel = "Santu", views, time, verified = true }) { // de-structuring the object and used them as a variable
+  return (
+    <div className="container">
+      <div className="pic">
+        <img src={source} alt="Opps!!" />
+      </div>
+      <div className="title">{title}</div>
+      <div className="channelName">{channel} {verified ? '☑️' : null}</div>
+      <div className="details">
+        {views} views <span>.</span> {time} ago
+      </div>
+    </div>
+  );
+}
+
+export default Video;
+
+
+**//
+
+//** using boolean expression
+
+Video.js
+
+import "./Video.css";  // importing css file
+function Video({ source, title, channel = "Santu", views, time, verified = true }) { // de-structuring the object and used them as a variable
+  return (
+    <div className="container">
+      <div className="pic">
+        <img src={source} alt="Opps!!" />
+      </div>
+      <div className="title">{title}</div>
+      <div className="channelName">{channel} {verified && '☑️'}</div>  // if the verified is true then only the next statement will execute otherwise the statement will terminate from that point, the statement will no be executed at all
+      <div className="details">
+        {views} views <span>.</span> {time} ago
+      </div>
+    </div>
+  );
+}
+
+export default Video;
+
+**//
+
+
+
+
 -> Mapping and iterate through all the data of a list
+
+our task is to render all the data using map(). 
 
 //**
 Data.js 
+
 let videos = [              // create a array of objects to store all the value and we can use them for mapping by importing the Data.js \\
   {
     source:
@@ -33,8 +150,14 @@ export default videos;
 
 //**
 App.js
-<div className="App">
-      {videos.map((videos) => (     // .map(iterator) => (data) \\
+
+import "./App.css";
+import Video from "./component/Video";
+import videos from "./data/data";              // importing the Data.js \\
+function App() {
+  return (
+    <div className="App">
+      {videos.map((videos) => (                // using .map() => () to iterate 
         <Video
           title={videos.title}
           views={videos.views}
@@ -44,4 +167,30 @@ App.js
         ></Video>
       ))}
     </div>
+  );
+}
+
+export default App;
+**//
+
+//**
+Video.js
+
+import "./Video.css";  // importing css file
+function Video({ source, title, channel = "Santu", views, time, verified = true }) { // de-structuring the object and used them as a variable
+  return (
+    <div className="container">
+      <div className="pic">
+        <img src={source} alt="Opps!!" />
+      </div>
+      <div className="title">{title}</div>
+      <div className="channelName">{channel} {verified && '☑️'}</div>
+      <div className="details">
+        {views} views <span>.</span> {time} ago
+      </div>
+    </div>
+  );
+}
+
+export default Video;
 **//
