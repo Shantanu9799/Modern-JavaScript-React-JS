@@ -404,3 +404,124 @@ export default App;
 **//
 
 
+** Adding different two Functionality in one buttons
+
+//**
+playButton.js
+
+import './PlayButton.css'
+function PlayButton({message, children, onPlay, onPause}) {
+    let playingStatus = false;     // creating a variable to main the current value \\
+    function handelClick() {
+        if(playingStatus) onPause();  // if true then call the onPause() function \\
+        else onPlay();      // else call the onPlay() function
+
+        playingStatus = !playingStatus;       // if the value is true make it false and vice varsa \\
+    }
+    return (
+        <button onClick={handelClick}>{children}</button>
+    )
+}
+
+export default PlayButton
+
+**//
+
+//**
+App.js
+
+import "./App.css";
+import Video from "./component/Video";
+import PlayButton from "./component/playButton";
+import videos from "./data/data";
+function App() {
+  return (
+    //also we can make a object of all the properties and directly put it like <Video {...obj} />.
+    <div className="App">
+      {videos.map((videos) => (
+        <Video
+          title={videos.title}
+          views={videos.views}
+          source={videos.source}
+          time={videos.time}
+          verified={videos.verified}
+        ></Video>
+      ))}
+
+      <div style={{ clear: "both" }}>
+        <PlayButton
+          message="Play - msg"
+          onPlay={() => console.log("Play")}       // onPlay() function \\
+          onPause={() => console.log("Pause")}     // onPause() function \\
+        >
+          Play
+        </PlayButton>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+**//
+
+** To show button under every video we have to use the children props
+
+//**
+App.js
+
+import "./App.css";
+import Video from "./component/Video";
+import PlayButton from "./component/playButton";
+import videos from "./data/data";
+function App() {
+  return (
+    //also we can make a object of all the properties and directly put it like <Video {...obj} />.
+    <div className="App">
+      {videos.map((videos) => (
+        <Video
+          title={videos.title}
+          views={videos.views}
+          source={videos.source}
+          time={videos.time}
+          verified={videos.verified}
+        >                                     
+          <PlayButton                                 // putting the PlauButton tag inside the video tag \\
+            onPlay={() => console.log("Play")}
+            onPause={() => console.log("Pause")}
+          >
+            Play
+          </PlayButton>
+        </Video>
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+**//
+
+//**
+Video.js
+
+import "./Video.css";  // importing css file
+function Video({ source, title, channel = "Santu", views, time, verified = true , children}) {  // we're passing the children props because of rendering the child which is the playButton \\
+  return (
+    <div className="container">
+      <div className="pic">
+        <img src={source} alt="Opps!!" />
+      </div>
+      <div className="title">{title}</div>
+      <div className="channelName">{channel} {verified && '☑️'}</div>
+      <div className="details">
+        {views} views <span>.</span> {time} ago
+      </div>
+      <div>{children}</div>   // creating a div just for make it smoother \\
+    </div>
+  );
+}
+
+export default Video;
+
+**//

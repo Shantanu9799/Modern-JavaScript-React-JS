@@ -1,6 +1,6 @@
 import "./Video.css";  // importing css file
 
-function Video({ source, title, channel = "Santu", views, time, verified = true }) { // de-structuring the object and used them as a variable
+function Video({ source, title, channel = "Santu", views, time, verified = true , children}) { // de-structuring the object and used them as a variable
   return (
     <div className="container">
       <div className="pic">
@@ -11,6 +11,7 @@ function Video({ source, title, channel = "Santu", views, time, verified = true 
       <div className="details">
         {views} views <span>.</span> {time} ago
       </div>
+      <div>{children}</div>
     </div>
   );
 }

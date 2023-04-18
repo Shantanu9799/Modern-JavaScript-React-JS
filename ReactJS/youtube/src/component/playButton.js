@@ -1,8 +1,12 @@
 import './PlayButton.css'
 
-function PlayButton({message, children, onSmash}) {
+function PlayButton({children, onPlay, onPause}) {
+    let playingStatus = false;
     function handelClick() {
-        onSmash();
+        if(playingStatus) onPause();
+        else onPlay();
+
+        playingStatus = !playingStatus;
     }
     return (
         <button onClick={handelClick}>{children}</button>

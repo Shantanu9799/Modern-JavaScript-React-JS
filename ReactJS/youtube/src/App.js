@@ -6,20 +6,22 @@ function App() {
   return (
     //also we can make a object of all the properties and directly put it like <Video {...obj} />.
     <div className="App">
-      {videos.map(videos => 
+      {videos.map((videos) => (
         <Video
           title={videos.title}
           views={videos.views}
           source={videos.source}
           time={videos.time}
           verified={videos.verified}
-        ></Video>
-      )}
-
-      <div style={{clear : "both"}}> 
-        <PlayButton message='Play - msg' onSmash = {()=> console.log("Play")}>Play</PlayButton>
-        <PlayButton message='Pause - msg' onSmash = {()=> alert("Pause")}>Pause</PlayButton>
-      </div>
+        >
+          <PlayButton
+            onPlay={() => console.log("Play")}
+            onPause={() => console.log("Pause")}
+          >
+            Play
+          </PlayButton>
+        </Video>
+      ))}
     </div>
   );
 }
