@@ -525,3 +525,4 @@ function Video({ source, title, channel = "Santu", views, time, verified = true 
 export default Video;
 
 **//
+check the console... the state of the different varibale is maintained well for different button ..

@@ -15,8 +15,8 @@ function App() {
           verified={videos.verified}
         >
           <PlayButton
-            onPlay={() => console.log("Play")}
-            onPause={() => console.log("Pause")}
+            onPlay={() => console.log("Play", videos.title)}
+            onPause={() => console.log("Pause", videos.title)}
           >
             Play
           </PlayButton>
