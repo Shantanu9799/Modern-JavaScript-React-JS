@@ -526,3 +526,52 @@ export default Video;
 
 **//
 check the console... the state of the different varibale is maintained well for different button ..
+
+
+--> UseState Hook
+
+//**
+Counter.js
+
+import { useState } from "react";    // importing the useState hook
+function Counter() {
+    const [number, setNumber] = useState(0);   // useState hook return an array. The number and the setNumber used for array destructuring. we put 0 because of the initial value of the number. \\
+    function handelClick() {
+        setNumber(number+1)  // increment the value of number ... setNumber keep the previous state. \\
+        console.log(number);
+    }
+    return (
+        <>
+        <h3 style={{color: "#fff"}}>{number}</h3>
+        <button onClick={handelClick}>Add</button>
+        </>
+        
+    )
+}
+
+export default Counter;
+
+**//
+
+//** another way and most popular one
+Counter.js
+
+import { useState } from "react";
+function Counter() {
+    const [number, setNumber] = useState(0);
+    function handelClick() {
+        setNumber(number => number+1)   // arrow functionto do the job \\
+        console.log(number);
+    }
+    return (
+        <>
+        <h3 style={{color: "#fff"}}>{number}</h3>
+        <button onClick={handelClick}>Add</button>
+        </>
+        
+    )
+}
+
+export default Counter;
+
+**//

@@ -1,4 +1,5 @@
 import "./App.css";
+import Counter from "./component/Counter";
 import Video from "./component/Video";
 import PlayButton from "./component/playButton";
 import videos from "./data/data";
@@ -22,6 +23,7 @@ function App() {
           </PlayButton>
         </Video>
       ))}
+      <Counter></Counter>
     </div>
   );
 }
