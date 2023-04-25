@@ -598,3 +598,32 @@ function PlayButton({children, onPlay, onPause}) {
 export default PlayButton;
 
 **//
+
+--> Form in react
+
+//**
+AddVideo.js
+
+import "./AddVideo.css"
+
+function AddVideo() {
+    function handelSubmit() {
+        
+    }
+    function handelChange(e) {
+        console.log(e.target.name, e.target.value)    // e.target.value is giving us the value while changing the input and e.target.name will givw us the name of the input field as the concept of DOM
+    }
+
+    return (
+        <form>
+            <input type="text" name="title" onChange={handelChange} placeholder="Title of the Video"></input>
+            <input type="text" name="views" onChange={handelChange} placeholder="Views of the Video"></input>
+            <button onClick={handelSubmit}>Add Video</button>
+        </form>
+    )
+}
+
+export default AddVideo;
+
+**//
+
