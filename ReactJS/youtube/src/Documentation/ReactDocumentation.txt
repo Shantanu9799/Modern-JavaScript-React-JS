@@ -560,7 +560,7 @@ import { useState } from "react";
 function Counter() {
     const [number, setNumber] = useState(0);
     function handelClick() {
-        setNumber(number => number+1)   // arrow functionto do the job \\
+        setNumber(number => number+1)   // updater function style to do the job \\
         console.log(number);
     }
     return (
@@ -573,5 +573,28 @@ function Counter() {
 }
 
 export default Counter;
+
+**//
+
+//** change play pause button using useState hook
+PlauButton.js
+
+import { useState } from 'react';   // importing the useState hook \\
+import './PlayButton.css'
+
+function PlayButton({children, onPlay, onPause}) {
+    const [playingStatus, setPlayingStatus] = useState(false);   // destructuring array for main
+    function handelClick() {
+        if(playingStatus) onPause();
+        else onPlay();
+
+        setPlayingStatus(!playingStatus);
+    }
+    return (
+        <button onClick={handelClick}>{children} : {playingStatus ? '⏸️' : '⏯️'}</button>
+    )
+}
+
+export default PlayButton;
 
 **//

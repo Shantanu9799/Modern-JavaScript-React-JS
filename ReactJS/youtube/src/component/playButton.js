@@ -1,16 +1,17 @@
+import { useState } from 'react';
 import './PlayButton.css'
 
 function PlayButton({children, onPlay, onPause}) {
-    let playingStatus = false;
+    const [playingStatus, setPlayingStatus] = useState(false);
     function handelClick() {
         if(playingStatus) onPause();
         else onPlay();
 
-        playingStatus = !playingStatus;
+        setPlayingStatus(!playingStatus);
     }
     return (
-        <button onClick={handelClick}>{children}</button>
+        <button onClick={handelClick}>{children} : {playingStatus ? '⏸️' : '⏯️'}</button>
     )
 }
 
-export default PlayButton
+export default PlayButton;
