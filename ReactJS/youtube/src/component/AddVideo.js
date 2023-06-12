@@ -1,29 +1,78 @@
-import "./AddVideo.css"
-import { useState } from "react";
-function AddVideo({addVideos}) {
-    const [videos, setVideos] = useState({
-        time: "11 months",
-        verified: false,
-    });
-    function handelSubmit(e) {
-        e.preventDefault();
-        addVideos(videos);
-    }
-    function handelChange(e) {
-        console.log(e.target.name, e.target.value)
-        setVideos({...videos, 
-            [e.target.name] : e.target.value})
+import './AddVideo.css';
+import { useEffect, forwardRef, useRef, useState, useImperativeHandle } from 'react';
+import useVideoDispatch from '../hooks/VideoDispatch';
+import { createPortal } from 'react-dom';
+
+const initialState = {
+  time: '1 month ago',
+  channel: 'Coder Dost',
+  verified: true,
+  title: '',
+  views: '',
+};
+
+const AddVideo = forwardRef(function AddVideo({ editableVideo },ref) {
+  const [video, setVideo] = useState(initialState);
+  const dispatch = useVideoDispatch();
+  // const inputRef = useRef(null);
+  const iRef =  useRef(null);
+
+  useImperativeHandle(ref,()=>{
+    return {
+      jumpTo(){
+          iRef.current.focus()
+      }
     }
 
-    return (
-        <form>
-            <input type="text" name="title" onChange={handelChange} placeholder="Title of the Video"></input>
-            {videos.title}
-            <input type="text" name="views" onChange={handelChange} placeholder="Views of the Video"></input>
-            <button onClick={handelSubmit}
-            >Add Video</button>
-        </form>
-    )
-}
+  },[])
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (editableVideo) {
+      dispatch({ type: 'UPDATE', payload: video });
+    } else {
+      dispatch({ type: 'ADD', payload: video });
+    }
+
+    setVideo(initialState);
+  }
+  function handleChange(e) {
+    setVideo({ ...video, [e.target.name]: e.target.value });
+  }
+
+  useEffect(() => {
+    if (editableVideo) {
+      setVideo(editableVideo);
+    }
+    // inputRef.current.focus();
+  }, [editableVideo]);
+
+  return (
+    <form>
+      <input
+        ref={iRef}
+        type="text"
+        name="title"
+        onChange={handleChange}
+        placeholder="title"
+        value={video.title}
+      />
+      <input
+        type="text"
+        name="views"
+        onChange={handleChange}
+        placeholder="views"
+        value={video.views}
+      />
+      <button onClick={handleSubmit}>
+        {editableVideo ? 'Edit' : 'Add'} Video
+      </button>
+      {createPortal(
+    <p>This child is placed in the document body.</p>,
+      document.getElementById('root1')
+       )}
+    </form>
+  );
+})
 
 export default AddVideo;
