@@ -7,6 +7,7 @@ import ThemeContext from './context/ThemeContext';
 import VideosContext from './context/VideosContext';
 import VideoDispatchContext from './context/VideoDispatchContext';
 import Counter from './components/Counter';
+import React from 'react';
 
 const Dummy = lazy(() => import('./components/Dummy.js'));
 
