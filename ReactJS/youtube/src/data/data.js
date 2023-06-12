@@ -1,4 +1,4 @@
-let videos = [
+let videosDB = [
   {
     id : 1,
     source:
@@ -27,4 +27,4 @@ let videos = [
   },
 ];
 
-export default videos;
+export default videosDB;
