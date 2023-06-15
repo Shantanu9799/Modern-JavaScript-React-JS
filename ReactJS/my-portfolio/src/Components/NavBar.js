@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <div className='header'>
         <Link to='/'>
-            <h1>My Portfolio</h1>
+            <img src='portfolio.png' alt=''/>
         </Link>
         <ul className={click ? 'Nav-menu active' : 'Nav-menu'}>
             <li>
