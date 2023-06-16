@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import Count from "./Hooks/UseEffect/Count.js";
-import Object from "./Hooks/UseEffect/Object.js";
+import Count from "./Hooks/UseState/Count.js";
+import Object from "./Hooks/UseState/Object.js";
 
 function App() {
   return (
