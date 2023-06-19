@@ -21,7 +21,7 @@
 }
 
 .hero .content {
-    position: relative;
+    position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
 }
@@ -48,7 +48,7 @@
     text-align: center;
     justify-content: center;
     top: 50%;
-    left: 50%;
+    left: 25%;
 }
 
 .hero .content h1 {
@@ -59,12 +59,17 @@
 }
 
 .hero .content p {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
     color: rgb(255, 255, 255);
     word-spacing: 1.5vh;
     letter-spacing: 1vh;
+    font-family: Garamond, serif;
 }
 
 .content .btn {
@@ -72,17 +77,17 @@
 }
 
 @media screen and (max-width: 640px) {
-    
+
     .hero .content h1 {
         font-size: 2rem;
     }
-    
+
     .hero .content p {
         font-size: 1.4rem;
     }
 
     .my-img {
-        position: relative;
+
     }
 
 }
