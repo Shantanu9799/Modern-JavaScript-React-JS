@@ -1,85 +1,87 @@
 .mask {
-    width: 100%;
-    height: 100vh;
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 .intro-img {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
 }
 
 .content .my-img {
-    width: auto;
-    height: 28vh;
-    position: absolute;
-    left: 200%;
-    border-radius: 50%;
+  width: auto;
+  height: 27vh;
+  position: absolute;
+  left: 190%;
+  border-radius: 50%;
 }
 
-
-
 .mask::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    opacity: 0.8;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.8;
 }
 
 .hero {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .hero .content {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    justify-content: center;
-    top: 50%;
-    left: 25%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  justify-content: center;
+  top: 50%;
+  left: 25%;
+  padding: 10px;
+
 }
 
 .hero .content h1 {
-    font-size: 4.2rem;
-    font-weight: 400;
-    padding: 0.6rem 0 1.5rem;
-    letter-spacing: 0.7vh;
+  font-size: 4.2rem;
+  font-weight: 320;
+  padding: 0.6rem 0 1.5rem;
+  letter-spacing: 0.7vh;
+  position: fixed;
+  width: 110%;
+  top: 10;
+  height: 100px;
 }
 
-.hero .content p {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: rgb(255, 255, 255);
-    word-spacing: 1.5vh;
-    letter-spacing: 1vh;
-    font-family: Garamond, serif;
+.hero .content .context p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  word-spacing: 1.5vh;
+  letter-spacing: 1vh;
+  font-family: Garamond, serif;
+}
+
+.content .btn-section {
+  padding-top: 120px;
 }
 
 .content .btn {
-    margin: 1rem 0.7rem;
+  margin: 1rem 0.7rem;
+}
+
+.hero h1 {
+  position: relative;
 }
 
 @media screen and (max-width: 640px) {
-    .hero .content h1 {
-      font-size: 2rem;
-    }
-    
-    .hero .content p {
-      font-size: 1.4rem;
-    }
-  
+  .hero {
+    width: 100%;
   }
-  
+}
