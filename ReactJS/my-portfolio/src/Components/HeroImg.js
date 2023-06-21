@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./HeroImg.css";
 
-import IntroImg from "../Assets/IntroImg.jpg";
-import MyImg from "../Assets/ShantanuImg3.jpg";
+// import IntroImg from "../Assets/IntroImg.jpg";
+import IntroImg from "../Assets/IntroImg2.jpg";
+// import IntroImg from "../Assets/IntroImg6.jpg";
+// import MyImg from "../Assets/profile1.png";
+// import MyImg from "../Assets/profile2.png";
+import MyImg from "../Assets/profile3.jpg";
+
 
 const HeroImg = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -76,7 +81,7 @@ const HeroImg = () => {
               dataPeriod="100"
               data-rotate='[ "Software Engineer", "React Developer", "DevOps Engineer", "Coder" ]'
             >
-              {text}{cursor}
+              {text}<span className="Cursor">{cursor}</span>
             </div>
           </h1>
         </div>

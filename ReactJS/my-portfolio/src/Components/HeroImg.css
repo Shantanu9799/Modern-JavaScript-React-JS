@@ -14,9 +14,10 @@
 
 .content .my-img {
   width: auto;
-  height: 27vh;
+  height: 60vh;
   position: absolute;
-  left: 190%;
+  left: 160%;
+  top: -130px;
   border-radius: 50%;
 }
 
@@ -44,7 +45,6 @@
   top: 50%;
   left: 25%;
   padding: 10px;
-
 }
 
 .hero .content h1 {
@@ -56,6 +56,7 @@
   width: 110%;
   top: 10;
   height: 100px;
+  color: rgb(26, 206, 47);
 }
 
 .hero .content .context p {
@@ -78,6 +79,32 @@
 
 .hero h1 {
   position: relative;
+}
+
+.context h1 .Cursor {
+  color: rgba(7, 162, 38, 0.707);
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.Cursor {
+  transition: opacity 0.2s;
+}
+
+.Cursor:hover {
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
 @media screen and (max-width: 640px) {
