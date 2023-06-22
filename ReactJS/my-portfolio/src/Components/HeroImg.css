@@ -14,10 +14,10 @@
 
 .content .my-img {
   width: auto;
-  height: 60vh;
+  height: 50vh;
   position: absolute;
   left: 160%;
-  top: -130px;
+  top: -110px;
   border-radius: 50%;
 }
 
