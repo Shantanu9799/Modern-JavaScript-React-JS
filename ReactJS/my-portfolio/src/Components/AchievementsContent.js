@@ -1,7 +1,13 @@
 import React from "react";
 
-import c1 from "../Assets/c1.jpg";
-import c2 from "../Assets/c2.jpg";
+import a1 from "../Assets/a1.jfif";
+import a2 from "../Assets/a2.jfif";
+import a3 from "../Assets/a3.jfif";
+import a4 from "../Assets/a4.jpg";
+import a5 from "../Assets/a5.jfif";
+import a6 from "../Assets/a6.jfif";
+import a7 from "../Assets/a7.jfif";
+
 
 const AchievementsContent = () => {
   return (
@@ -19,19 +25,31 @@ const AchievementsContent = () => {
         <li data-target="#carouselExampleIndicators" data-slide-to={1} />
         <li data-target="#carouselExampleIndicators" data-slide-to={2} />
         <li data-target="#carouselExampleIndicators" data-slide-to={3} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={4} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={5} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={6} />
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img className="d-block w-100" src={c1} alt="First slide" />
+          <img className="rounded mx-auto  d-block" src={a1} alt="First slide" />
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={c2} alt="Second slide" />
+          <img className="rounded mx-auto  d-block" src={a2} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={c1} alt="Third slide" />
+          <img className="rounded mx-auto  d-block" src={a3} alt="Third slide" />
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={c2} alt="Second slide" />
+          <img className="rounded mx-auto  d-block" src={a4} alt="Second slide" />
+        </div>
+        <div className="carousel-item">
+          <img className="rounded mx-auto  d-block" src={a5} alt="Second slide" />
+        </div>
+        <div className="carousel-item">
+          <img className="rounded mx-auto  d-block" src={a6} alt="Second slide" />
+        </div>
+        <div className="carousel-item">
+          <img className="rounded mx-auto  d-block" src={a7} alt="Second slide" />
         </div>
       </div>
       <a

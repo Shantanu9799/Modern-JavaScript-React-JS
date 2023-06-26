@@ -1,7 +1,10 @@
 import React from "react";
 
-import c1 from "../Assets/c1.jpg";
-import c2 from "../Assets/c2.jpg";
+import c1 from "../Assets/c1.jfif";
+import c2 from "../Assets/c2.jfif";
+import c3 from "../Assets/c3.jfif";
+import c4 from "../Assets/c4.jfif";
+import c5 from "../Assets/c5.jfif";
 
 const CertificateContent = () => {
   return (
@@ -19,6 +22,7 @@ const CertificateContent = () => {
         <li data-target="#carouselExampleIndicators" data-slide-to={1} />
         <li data-target="#carouselExampleIndicators" data-slide-to={2} />
         <li data-target="#carouselExampleIndicators" data-slide-to={3} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={4} />
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
@@ -28,10 +32,13 @@ const CertificateContent = () => {
           <img className="rounded mx-auto  d-block" src={c2} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={c1} alt="Third slide" />
+          <img className="rounded mx-auto  d-block" src={c3} alt="Third slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={c2} alt="Second slide" />
+          <img className="rounded mx-auto  d-block" src={c4} alt="Second slide" />
+        </div>
+        <div className="carousel-item">
+          <img className="rounded mx-auto  d-block" src={c5} alt="Second slide" />
         </div>
       </div>
       <a
