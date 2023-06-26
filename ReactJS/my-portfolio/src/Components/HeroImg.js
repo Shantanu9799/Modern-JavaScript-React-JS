@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./HeroImg.css";
 
-import IntroImg from "../Assets/IntroImg.jpg";
-// import IntroImg from "../Assets/IntroImg2.jpg";
+// import IntroImg from "../Assets/IntroImg.jpg";
+import IntroImg from "../Assets/IntroImg2.jpg";
 import MyImg from "../Assets/profile3.jpg";
 
 
