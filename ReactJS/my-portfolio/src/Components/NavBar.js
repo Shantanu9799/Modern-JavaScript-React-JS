@@ -29,13 +29,13 @@ const NavBar = () => {
                 <Link to='/'>Home</Link>
             </li>
             <li>
-                <Link to='/project'>Project</Link>
+                <Link to='/certificate'>Certification</Link>
+            </li>
+            <li>
+                <Link to='/achievement'>Achievements</Link>
             </li>
             <li>
                 <Link to='/about'>About</Link>
-            </li>
-            <li>
-                <Link to='/contact'>Contact</Link>
             </li>
         </ul>
         <div className='hamburger' onClick= {handelClick}> 

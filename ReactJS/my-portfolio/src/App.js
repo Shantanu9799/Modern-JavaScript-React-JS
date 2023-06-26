@@ -5,6 +5,8 @@ import  Home  from './routes/Home';
 import  Project  from './routes/Project';
 import  About  from './routes/About';
 import  Contact  from './routes/Contact';
+import Certificates from './routes/Certificates';
+import Achievements from './routes/Achievements';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path='/project' element={ <Project /> } />
       <Route path='/about' element={ <About /> } />
       <Route path='/contact' element={ <Contact /> } />
+      <Route path='/certificate' element={ <Certificates /> } />
+      <Route path='/achievement' element={ <Achievements /> } />
     
     </Routes>
     </>
