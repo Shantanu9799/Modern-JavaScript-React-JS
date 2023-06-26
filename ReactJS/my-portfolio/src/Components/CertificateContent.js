@@ -22,16 +22,16 @@ const CertificateContent = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img className="d-block w-100" src={c1} alt="First slide" />
+          <img className="rounded mx-auto  d-block" src={c1} alt="First slide"  />
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={c2} alt="Second slide" />
+          <img className="rounded mx-auto  d-block" src={c2} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={c1} alt="Third slide" />
+          <img className="rounded mx-auto  d-block" src={c1} alt="Third slide" />
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={c2} alt="Second slide" />
+          <img className="rounded mx-auto  d-block" src={c2} alt="Second slide" />
         </div>
       </div>
       <a
