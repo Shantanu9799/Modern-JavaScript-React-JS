@@ -31,25 +31,25 @@ const AchievementsContent = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img className="rounded mx-auto  d-block" src={a1} alt="First slide" />
+          <img className="rounded mx-auto d-block" src={a1} alt="First slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={a2} alt="Second slide" />
+          <img className="rounded mx-auto d-block" src={a2} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={a3} alt="Third slide" />
+          <img className="rounded mx-auto d-block" src={a3} alt="Third slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={a4} alt="Second slide" />
+          <img className="rounded mx-auto d-block" src={a4} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={a5} alt="Second slide" />
+          <img className="rounded mx-auto d-block" src={a5} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={a6} alt="Second slide" />
+          <img className="rounded mx-auto d-block" src={a6} alt="Second slide" />
         </div>
         <div className="carousel-item">
-          <img className="rounded mx-auto  d-block" src={a7} alt="Second slide" />
+          <img className="rounded mx-auto d-block" src={a7} alt="Second slide" />
         </div>
       </div>
       <a
