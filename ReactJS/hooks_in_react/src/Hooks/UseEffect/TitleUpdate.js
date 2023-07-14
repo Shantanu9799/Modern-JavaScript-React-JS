@@ -4,13 +4,10 @@ import { BiPlusMedical } from "react-icons/bi";
 import { FaMinus } from "react-icons/fa";
 
 const TitleUpdate = () => {
-
   const [count, setCount] = useState(0);
-
   useEffect(()=>{
     document.title = count;
   })
-
   return (
     <>
       <Wrapper>

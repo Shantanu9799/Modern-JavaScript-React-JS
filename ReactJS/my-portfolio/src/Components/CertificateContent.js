@@ -5,6 +5,7 @@ import c2 from "../Assets/c2.jfif";
 import c3 from "../Assets/c3.jfif";
 import c4 from "../Assets/c4.jfif";
 import c5 from "../Assets/c5.jfif";
+import c6 from "../Assets/Google Project Management Course Certificate 1.jpg";
 
 const CertificateContent = () => {
   return (
@@ -23,6 +24,7 @@ const CertificateContent = () => {
         <li data-target="#carouselExampleIndicators" data-slide-to={2} />
         <li data-target="#carouselExampleIndicators" data-slide-to={3} />
         <li data-target="#carouselExampleIndicators" data-slide-to={4} />
+        <li data-target="#carouselExampleIndicators" data-slide-to={5} />
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
@@ -39,6 +41,9 @@ const CertificateContent = () => {
         </div>
         <div className="carousel-item">
           <img className="rounded mx-auto  d-block" src={c5} alt="Second slide" />
+        </div>
+        <div className="carousel-item">
+          <img className="rounded mx-auto  d-block" src={c6} alt="Second slide" />
         </div>
       </div>
       <a

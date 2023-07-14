@@ -4,9 +4,7 @@ import { BiPlusMedical } from "react-icons/bi";
 import { FaMinus } from "react-icons/fa";
 
 const Count = () => {
-
   const [count, setCount] = useState(0);
-
   return (
     <>
       <Wrapper>
@@ -36,12 +34,9 @@ const Wrapper = styled.section`
   .icon {
     font-size: 2rem;
   }
-
   h1 {
     font-size: 5.4rem;
     color: #2e86c1;
   }
 `;
-
-
 export default Count;
