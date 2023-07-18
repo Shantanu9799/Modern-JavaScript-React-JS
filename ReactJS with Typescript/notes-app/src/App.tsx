@@ -1,14 +1,16 @@
 import './App.css';
-import Note from './components/notes';
+import Note from './components/note/note';
+import { Notes } from './components/note/data';
 
 function App() {
   return (
     <div className="App">
       <h2>Notes app using React with typescript</h2>
-      <Note text='Hello World'/>
-      <Note text='Hello World' priority='high'/>
-      <Note text='Hello World' priority='medium'/>
-      <Note text='Hello World' priority='low'/>
+      <div>
+        {
+          Notes.map((note) => <Note key={ note.id } text={ note.text } priority={ note.priority } />)
+        }
+      </div>
     </div>
   );
 }
