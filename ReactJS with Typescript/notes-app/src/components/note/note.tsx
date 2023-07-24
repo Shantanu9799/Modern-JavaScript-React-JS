@@ -1,12 +1,14 @@
-import './note.css';
-import { NoteProps } from './note-type';
+import { Color, NoteProps } from "./note-type";
+import { Card } from "../card/card";
 
 function Note(props: NoteProps) {
-    return (
-        <div className={`note ${ props.priority }`}>
-            { props.text }
-        </div>
-    )
+  return (
+    <Card bgColor={props.priority && Color[props.priority]} height="3" padding="1">
+      <div>
+        { props.text }
+      </div>
+    </Card>
+  );
 }
 
 export default Note;

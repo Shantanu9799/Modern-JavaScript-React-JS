@@ -1,4 +1,4 @@
-.note {
+.card {
     border: 1px solid grey;
     padding: 2rem;
     font-size: 2rem;
@@ -10,14 +10,3 @@
     margin-bottom: 2rem;
 }
 
-.high {
-    background-color: coral;
-}
-
-.medium {
-    background-color: rgb(175, 225, 150);
-}
-
-.low {
-    background-color: rgb(129, 97, 235);
-}

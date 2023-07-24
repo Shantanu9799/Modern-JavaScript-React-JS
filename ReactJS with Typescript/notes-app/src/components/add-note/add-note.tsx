@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./add-note.css";
 import { NoteType, Priority } from '../note/note-type';
 import {v4 as uuidv4} from "uuid";
+import { Card } from "../card/card";
 
 type addNotePops = {
   addNote : (note : NoteType) => void;
@@ -31,11 +32,12 @@ function AddNote(props : addNotePops) {
   const handelSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPriority(e.target.value as Priority);
   }
+  
 
   return (
-    <div>
+    <Card bgColor="rgb(12,21,122)" height="5" padding="2">
       <form className="add-note">
-        <input type="text" onChange={handelChange} value={text}/>
+        <input type="text" onChange={handelChange} value={text} placeholder="Enter your card name here" />
         <select onChange={handelSelect} value={priority}>
           <option value="high">High</option>
           <option value="medium">Medium</option>
@@ -43,7 +45,7 @@ function AddNote(props : addNotePops) {
         </select>
         <button onClick={handelClick}>ADD</button>
       </form>
-    </div>
+    </Card>
   );
 }
 
