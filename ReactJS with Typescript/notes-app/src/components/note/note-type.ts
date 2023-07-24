@@ -1,8 +1,11 @@
 export type Priority = 'high' | 'medium'| 'low';
 
 export type NoteProps = {
+    id : string,
     text : string,
     priority ?: Priority,   // by putting ? it shows that it's not mandatory
+    editNote : (id: string) => void,
+    deleteNote: (id: string) => void
 }
 
 export type NoteType = {
