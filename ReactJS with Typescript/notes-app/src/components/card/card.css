@@ -1,7 +1,6 @@
 .card {
     border: 1px solid grey;
     font-size: 2rem;
-    color: #333;
     border-radius: 0.5rem;
     background-color: burlywood;
     margin-top: 2rem;
@@ -9,3 +8,10 @@
     position: relative;
 }
 
+.card.dark {
+    color: white;
+}
+
+.card.light {
+    color: #333;
+}

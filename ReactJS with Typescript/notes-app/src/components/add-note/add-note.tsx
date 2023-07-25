@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./add-note.css";
 import { NoteType, Priority } from "../note/note-type";
 import { v4 as uuidv4 } from "uuid";
 import { Card } from "../card/card";
+import { ThemeContext } from "../../context/theme/theme";
 
 type addNotePops = {
   addNote: (note: NoteType) => void;
@@ -55,8 +56,10 @@ function AddNote(props: addNotePops) {
     setPriority(e.target.value as Priority);
   };
 
+  const theme = useContext(ThemeContext);
+
   return (
-    <Card bgColor="rgb(12,21,122)" height="5" padding="2">
+    <Card bgColor={theme==="light" ? "rgb(12,21,122)" : "rgb(7,27,250)"} height="5" padding="2">
       <form className="add-note">
         <input
           type="text"

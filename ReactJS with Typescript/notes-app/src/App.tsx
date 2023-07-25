@@ -1,54 +1,30 @@
-import './App.css';
-import Note from './components/note/note';
-import AddNote from './components/add-note/add-note';
-import { Notes } from './components/note/data';
-import { useState } from 'react';
-import { NoteType } from './components/note/note-type';
+import { useState } from "react";
+import "./App.css";
+import { ThemeContext } from "./context/theme/theme";
+import Home from "./pages/home/home";
+import Switch from "react-switch";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 function App() {
+  const [theme, setTheme] = useState("light");
 
-  const [notes, setNotes] = useState(Notes);
+  const [checked, setChecked] = useState(false);
 
-  const [editMode, setEditMode] = useState(false);
-  const [noteToBeEditted, setNoteToBeEditted] = useState<NoteType | null>(null);
-
-  const addNote = (note: NoteType) => {
-    setNotes([note,...notes]);
-  }
-
-  const updateNote = (updatedNote: NoteType) => {
-    const index = notes.findIndex(note => note.id === updatedNote.id);
-    const editedNotes = [...notes];
-    editedNotes.splice(index, 1, updatedNote);
-    setNotes(editedNotes);
-    setEditMode(false);
-  }
-
-  const editNote = (id: string) => {
-    setEditMode(true);
-    const editableNote = notes.find(note => note.id === id);
-    if(editableNote){
-      setNoteToBeEditted(editableNote);
+  const changeHandeler = (check: boolean) => {
+    setChecked(!checked);
+    if (check) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
     }
-  }
-
-  const deleteNote = (id: string) => {
-    const index = notes.findIndex(note => note.id === id);
-    const editedNotes = [...notes];
-    editedNotes.splice(index, 1);
-    setNotes(editedNotes);
-  }
+    console.log(checked, check);
+  };
 
   return (
-    <div className="App">
-      <h2>Notes app using React with typescript</h2>
-      <AddNote addNote = { addNote } editMode={editMode} noteToBeEditted={noteToBeEditted} updateNote={updateNote} />
-      <div>
-        {
-          notes.map((note) => <Note key={ note.id } id={ note.id } text={ note.text } priority={ note.priority } editNote={ editNote } deleteNote={ deleteNote } />)
-        }
-      </div>
-    </div>
+    <ThemeContext.Provider value={theme}>
+      <Switch className="react-switch" onChange={changeHandeler} checked={checked} uncheckedIcon={<FaMoon size={22} style={{ color:"white", position:"absolute", right: "4", top:"2" }}></FaMoon>} checkedIcon={<FaSun size={22} style={{ color:"F0DE36", position:"absolute", left: "4", top:"2" }}></FaSun>} offColor="#333" onColor="#1C0C5B" width={70}></Switch>
+      <Home />
+    </ThemeContext.Provider>
   );
 }
 
