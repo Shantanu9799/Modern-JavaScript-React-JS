@@ -21,6 +21,7 @@ function App() {
     const editedNotes = [...notes];
     editedNotes.splice(index, 1, updatedNote);
     setNotes(editedNotes);
+    setEditMode(false);
   }
 
   const editNote = (id: string) => {

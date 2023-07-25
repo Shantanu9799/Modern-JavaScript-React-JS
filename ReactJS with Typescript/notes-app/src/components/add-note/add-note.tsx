@@ -26,7 +26,7 @@ function AddNote(props: addNotePops) {
   };
 
   useEffect(() => {
-    if (props.noteToBeEditted) {
+    if (props.noteToBeEditted && props.editMode) {
       setNoteContent(props.noteToBeEditted);
     }
   }, [props.editMode, props.noteToBeEditted]);
