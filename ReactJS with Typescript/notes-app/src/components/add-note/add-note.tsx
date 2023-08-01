@@ -4,18 +4,19 @@ import { NoteType, Priority } from "../note/note-type";
 import { v4 as uuidv4 } from "uuid";
 import { Card } from "../card/card";
 import { ThemeContext } from "../../context/theme/theme";
+import { StateContext } from "../../context/state/state";
+import { ADD_NOTE, UPDATE_NOTE, SET_EDIT_MODE } from "../../actions";
 
 type addNotePops = {
-  addNote: (note: NoteType) => void;
-  editMode: boolean;
-  noteToBeEditted: NoteType | null;
-  updateNote: (updatedNote: NoteType) => void;
+  
 };
 
 function AddNote(props: addNotePops) {
   const [text, setText] = useState("");
 
   const [priority, setPriority] = useState<Priority>("low");
+
+  const { state, dispatch } = useContext(StateContext);
 
   const handelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -27,25 +28,26 @@ function AddNote(props: addNotePops) {
   };
 
   useEffect(() => {
-    if (props.noteToBeEditted && props.editMode) {
-      setNoteContent(props.noteToBeEditted);
+    if (state.noteToBeEditted && state.editMode) {
+      setNoteContent(state.noteToBeEditted);
     }
-  }, [props.editMode, props.noteToBeEditted]);
+  }, [state.editMode, state.noteToBeEditted]);
 
   const handelClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    if (props.editMode) {
-      props.noteToBeEditted && props.updateNote({
+    if (state.editMode) {
+      state.noteToBeEditted && dispatch({type: UPDATE_NOTE, payload: {
         text,
         priority,
-        id: props.noteToBeEditted.id,
-      });
+        id: state.noteToBeEditted.id,
+      }});
+      dispatch({type: SET_EDIT_MODE, payload: false});
     } else {
-      props.addNote({
+      dispatch({type: ADD_NOTE, payload: {
         text,
         priority,
         id: uuidv4(),
-      });
+      }});
     }
 
     setText("");
@@ -73,7 +75,7 @@ function AddNote(props: addNotePops) {
           <option value="low">Low</option>
         </select>
         <button onClick={handelClick}>
-          {props.editMode ? "UPDATE" : "ADD"}
+          {state.editMode ? "UPDATE" : "ADD"}
         </button>
       </form>
     </Card>
