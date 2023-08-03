@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from 'react';
 import "./App.css";
 import { ThemeContext } from "./context/theme/theme";
 import Home from "./pages/home/home";
@@ -6,7 +6,8 @@ import Switch from "react-switch";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { StateContext, StateType } from "./context/state/state";
 import { Notes } from "./components/note/data";
-import { SET_EDIT_MODE, SET_NOTE_FOR_EDIT, ADD_NOTE, DELETE_NOTE, UPDATE_NOTE } from "./actions";
+import { SET_EDIT_MODE, SET_NOTE_FOR_EDIT, ADD_NOTE, DELETE_NOTE, UPDATE_NOTE, INIT_NOTES } from "./actions";
+import { getNotes } from './services/notes-services';
 
 
 
@@ -16,7 +17,9 @@ function App() {
   const [checked, setChecked] = useState(false);
 
   const [state, dispatch] = useReducer((state:StateType, action:{ type : string, payload :any }) =>{
-    switch (action.type) { 
+    switch (action.type) {
+      case INIT_NOTES:
+        return { ...state, notes: action.payload };
       case SET_EDIT_MODE :
         return { ...state, editMode: action.payload };
       case SET_NOTE_FOR_EDIT :
@@ -36,7 +39,7 @@ function App() {
       default :
         return state;
     }
-  }, {notes: Notes, editMode: false, noteToBeEditted:null});
+  }, {notes: [], editMode: false, noteToBeEditted:null});
 
   const changeHandeler = (check: boolean) => {
     setChecked(!checked);
@@ -46,6 +49,14 @@ function App() {
       setTheme("light");
     }
   };
+
+  useEffect(()=>{
+    async function initializeNotes() {
+      const notes = await getNotes();
+      dispatch({ type : INIT_NOTES, payload: notes });
+    }
+    initializeNotes();
+  }, []);
 
   return (
     <StateContext.Provider value = {{ state, dispatch }}>
