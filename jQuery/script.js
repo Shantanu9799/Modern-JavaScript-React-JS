@@ -196,7 +196,89 @@ $('#lorem').animate({
 
 
 
+/************************************************** */
 
+// jQuery AJAX API call
+
+
+// get API
+// API link : https://mocki.io/v1/19232dd3-9cfe-4afb-8142-dcd9e1d4b6cb
+
+/*
+$(document).ready(function () {
+
+    var $orders = $('#orders');
+
+    $.ajax({
+
+        type : 'GET',
+        url : 'https://mocki.io/v1/19232dd3-9cfe-4afb-8142-dcd9e1d4b6cb',
+        success : function (orders) {
+            // console.log("Orders got", order);
+            $.each(orders, function (id, order) {
+                $orders.append("<li>Name : " + order.name + " | Drink : " + order.drink + "</li>");
+            })
+        },
+        error : function () {
+            alert("Please try again later");
+        }
+
+    });
+
+});
+*/
+
+
+// post API
+// API link : https://apigenerator.dronahq.com/api/7-zEEVNS/orders
+
+$(document).ready(function () {
+
+    var $orders = $('#orders');
+    var $name = $('#name');
+    var $drink = $('#drink');
+
+    // get api section
+    $.ajax({
+        type : 'GET',
+        url : 'https://apigenerator.dronahq.com/api/7-zEEVNS/orders',
+        success : function (orders) {
+            // console.log("Orders got", order);
+            $.each(orders, function (id, order) {
+                $orders.append("<li>Name : " + order.name + " | Drink : " + order.drink + "</li>");
+            })
+        },
+        error : function () {
+            alert("We haven't received any result yet!!");
+        }
+    });
+
+    $('#place-order').on('click', function() {
+
+        var order = {
+            name : $name.val(),
+            drink : $drink.val()
+        };
+
+        // console.log(order);
+    
+        // post api section
+        $.ajax({
+            type : 'POST',
+            url : 'https://apigenerator.dronahq.com/api/7-zEEVNS/orders',
+            data : order,
+            success : function (newOrder) {
+                console.log(newOrder);
+                $orders.append("<li>Name : " + newOrder.name + " | Drink : " + newOrder.drink + "</li>");
+            },
+            error : function () {
+                alert("Sorry!! We are unable to take your order now!!");
+                // console.log(Error);
+            }
+        });
+    })
+
+});
 
 
 
